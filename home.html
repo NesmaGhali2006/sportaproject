@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Sporta | Velocity Turf Arena</title>
+  <link rel="stylesheet" href="./Css/home.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- ===== HEADER / NAV (أبيض) ===== -->
+<header class="header">
+    <nav class="navbar">
+        <!-- اسم البراند -->
+        <div class="brand">sporta</div>
+
+        <!-- الروابط -->
+        <ul class="nav-links">
+            <li><a href="home.html" class="active">Home</a></li>
+            <li><a href="pages/about.html">About Us</a></li>
+            <li><a href="pages/contact.html">Contact Us</a></li>
+        </ul>
+
+        <!-- أيقونة السلة -->
+        <div class="cart">
+          <a class="nav-link-sign-in" href="pages/sign_in.html">Sign In</a>
+            <a href="pages/cart.html">🛒</a>
+        </div>
+    </nav>
+
+
+</header>
+
+  <main class="main-content">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-bg">
+        <!-- 👇 مكان صورة الهيرو -->
+        <img src="Assets/home-1.png" style="width:100%;height:100%;object-fit:cover;opacity:0.4;mix-blend-mode:overlay;" />
+        <div class="hero-gradient"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          Arena Live Now
+        </div>
+        <h2 class="hero-title">
+          Fuel the<br/>
+          <span class="text-green">Kinetic</span><br/>
+          Momentum.
+        </h2>
+        <p class="hero-desc">
+          Dominate the field with professional-grade courts and elite performance gear. Your arena is ready.
+        </p>
+        <div class="hero-btns">
+          <button class="btn-green"> <a href="pages/yard.html" id="none">Book a Court</a></button>
+          <button class="btn-ghost"> <a href="#products" id="none">Explore Shop</a></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ELITE ARENAS ===== -->
+    <section class="section-light">
+      <div class="container">
+
+        <div class="section-label-block">
+          <span class="label-green">Reservations</span>
+          <h3 class="section-title">Elite Arenas</h3>
+        </div>
+
+        <div class="arenas-grid">
+
+          <!-- Soccer -->
+          <div class="arena-card">
+            <div class="card-img-wrap">
+              <!-- 👇 مكان صورة الملعب -->
+              <img src="Assets/Yard.jpeg" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div class="card-body">
+              <h4 class="arena-name">Pro Soccer Pitch</h4>
+              <div class="arena-meta">
+                <span><span class="material-symbols-outlined icon-xs">location_on</span> Arena North</span>
+                <span><span class="material-symbols-outlined icon-xs">payments</span> $85/hr</span>
+              </div>
+              <button class="btn-book-full"> <a href="pages/yard.html" id="none"> Book Now </a></button>
+            </div>
+          </div>
+
+          <!-- Padel -->
+          <div class="arena-card">
+            <div class="card-img-wrap">
+              <!-- 👇 مكان صورة الملعب -->
+              <img src="Assets/home3.png" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div class="card-body">
+              <span class="label-green small">Fast-paced action</span>
+              <h4 class="arena-name">Padel Court</h4>
+              <div class="card-row-between">
+                <span class="price-md">$30/hr</span>
+                <button class="btn-arrow-text">Book <span class="material-symbols-outlined">arrow_forward</span></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tennis -->
+          <div class="arena-card">
+            <div class="card-img-wrap">
+              <!-- 👇 مكان صورة الملعب -->
+              <img src="Assets/home-4.png" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div class="card-body">
+              <h4 class="arena-name">Grand Slam Clay</h4>
+              <p class="arena-desc-sm">Experience professional friction and bounce on our imported clay surfaces.</p>
+              <div class="card-row-between">
+                <span class="price-md">$25/hr</span>
+                <button class="btn-pill-green">Reserve</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gym - full width -->
+          <div class="arena-card arena-dark-card">
+            <div class="dark-card-bg">
+              <!-- 👇 مكان صورة الجيم -->
+              <img src="Assets/home-5.png" style="width:100%;height:100%;object-fit:cover;opacity:0.4;mix-blend-mode:overlay;" />
+            </div>
+            <div class="dark-card-inner">
+              <div class="dark-card-left">
+                <span class="badge-elite">Elite Access</span>
+                <h4 class="dark-card-title">The Kinetic Forge</h4>
+                <p class="dark-card-desc">Unrestricted access to state-of-the-art conditioning equipment and professional trainers.</p>
+              </div>
+              <div class="dark-card-right">
+                <div class="price-green-big">$15<span class="price-sub">/session</span></div>
+                <a href="pages/sign_up.html" class="btn-white-dark">Start Training</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PERFORMANCE GEAR ===== -->
+    <section class="section-light section-border-top" id="products">
+      <div class="container">
+
+        <div class="gear-header">
+          <div>
+            <span class="label-green">The Arsenal</span>
+            <h3 class="section-title">Performance Gear</h3>
+          </div>
+        </div>
+
+        <div class="products-grid" >
+
+          <!-- Product 1 -->
+          <div class="product-card">
+            <div class="product-img-wrap">
+              <a href="pages/prod2.html"><img src="Assets/padel_racket.jpg" style="width:100%;height:100%;object-fit:cover;" /></a>
+              <span class="badge-choice">Elite Choice</span>
+            </div>
+            <h5 class="product-name">Elite Pro Padel Racket</h5>
+            <p class="product-price">$210.00</p>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="product-card">
+            <div class="product-img-wrap">
+              <a href="pages/yard.html"><img src="Assets/Yard.jpeg" style="width:100%;height:100%;object-fit:cover;" /></a>
+            </div>
+            <span class="product-cat">Apparel</span>
+            <h5 class="product-name">Sky Arena Soccer Turf</h5>
+            <p class="product-price">$85.00</p>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="product-card">
+            <div class="product-img-wrap">
+              <a href="pages/prod1.html"><img src="Assets/te-shirt.png" style="width:100%;height:100%;object-fit:cover;" /></a>
+            </div>
+            <span class="product-cat">Equipment</span>
+            <h5 class="product-name">Apex Compression Jersey</h5>
+            <p class="product-price">$90.00</p>
+          </div>
+
+          <!-- Product 4 -->
+          <div class="product-card">
+            <div class="product-img-wrap">
+              <a href="pages/prod3.html"><img src="Assets/prod3.png" style="width:100%;height:100%;object-fit:cover;" /></a>
+            </div>
+            <span class="product-cat">Footwear</span>
+            <h5 class="product-name">Vortex Precision Football</h5>
+            <p class="product-price">$45.00</p>
+          </div>
+
+          <!-- Product 5 -->
+          <div class="product-card">
+            <div class="product-img-wrap">
+              <img src="Assets/5.png" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <span class="product-cat">Equipment</span>
+            <h5 class="product-name">Titan Carbon Blade</h5>
+            <p class="product-price">$245.00</p>
+          </div>
+
+          <!-- Product 6 -->
+          <div class="product-card">
+            <div class="product-img-wrap">
+              <img src="Assets/6.png" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <span class="product-cat">Footwear</span>
+            <h5 class="product-name">Velocity Pro X-1</h5>
+            <p class="product-price">$189.00</p>
+          </div>
+
+          <!-- Product 7 -->
+          <div class="product-card">
+            <div class="product-img-wrap">
+              <img src="Assets/7.png" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <span class="product-cat">Gym</span>
+            <h5 class="product-name">Grip-Tech Iron Set</h5>
+            <p class="product-price">$320.00</p>
+          </div>
+
+          <!-- Product 8 -->
+          <div class="product-card">
+            <div class="product-img-wrap">
+              <img src="Assets/8.png" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <span class="product-cat">Equipment</span>
+            <h5 class="product-name">Zenith Grip Mat</h5>
+            <p class="product-price">$45.00</p>
+          </div>
+
+          <!-- Product 9 -->
+          <div class="product-card">
+            <div class="product-img-wrap">
+              <img src="Assets/9.png" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <span class="product-cat">Apparel</span>
+            <h5 class="product-name">Aero-Dry Tee</h5>
+            <p class="product-price">$35.00</p>
+          </div>
+
+          <!-- Product 10 -->
+          <div class="product-card">
+            <div class="product-img-wrap">
+              <img src="Assets/10.png" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <span class="product-cat">Equipment</span>
+            <h5 class="product-name">Volt Ace Racket</h5>
+            <p class="product-price">$210.00</p>
+          </div>
+
+          <!-- Product 11 -->
+          <div class="product-card">
+            <div class="product-img-wrap">
+              <img src="Assets/11.png" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <span class="product-cat">Swimming</span>
+            <h5 class="product-name">Hydra Goggle Pro</h5>
+            <p class="product-price">$28.00</p>
+          </div>
+
+          <!-- Product 12 -->
+          <div class="product-card">
+            <div class="product-img-wrap">
+              <img src="Assets/12.png" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <span class="product-cat">Footwear</span>
+            <h5 class="product-name">Court King Glow</h5>
+            <p class="product-price">$160.00</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section">
+      <div class="container cta-inner">
+        <div class="cta-badge">
+          <span class="ping-dot"></span>
+          <span>Real-time availability</span>
+        </div>
+        <h2 class="cta-title">
+          Stop Spectating.<br/>
+          <span class="text-green">Start Competing.</span>
+        </h2>
+        <div class="cta-card">
+          <p class="cta-desc">Join 5,000+ athletes who book their weekly sessions at Sporta.</p>
+          <button class="btn-join"> <a href="pages/sign_up.html" id="none">Join The Arena</a></button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER (ألوان الصفحة الأولى - أسود + أخضر) ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">SPORTA KINETIC</span>
+      <p class="footer-tagline">
+        The ultimate destination for the modern athlete. High-performance arenas and precision gear. Fueling your kinetic momentum every single day.
+      </p>
+      <nav class="footer-nav">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Support</a>
+        <a href="#">Careers</a>
+        <a href="#">Our Locations</a>
+      </nav>
+      <div class="footer-copy">© 2024 Sporta Kinetic Arena. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <!-- ===== BOTTOM NAV (Mobile) ===== -->
+  <nav class="bottom-nav">
+    <div class="nav-item active">
+      <span class="material-symbols-outlined">home</span>
+      <span>Home</span>
+    </div>
+    <div class="nav-item">
+      <span class="material-symbols-outlined">stadium</span>
+      <span>Book</span>
+    </div>
+    <div class="nav-item">
+      <span class="material-symbols-outlined">shopping_bag</span>
+      <span>Shop</span>
+    </div>
+    <div class="nav-item">
+      <span class="material-symbols-outlined">person</span>
+      <span>Profile</span>
+    </div>
+  </nav>
+
+</body>
+</html>

@@ -1,0 +1,923 @@
+/* ===================================
+   RESET & CSS VARIABLES
+=================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #001B3D;
+  --secondary: #6BFE9C;
+  --surface: #f8f9fa;
+  --surface-cont: #edeeef;
+  --surface-low: #e8eaec;
+  --on-surface: #191c1d;
+  --on-surface-var: #44474e;
+  --font-headline: 'Lexend', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background: var(--surface);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ===================================
+   TOPBAR — أبيض
+=================================== */
+/* الناف بار */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 15px 30px;
+  border-bottom: 1px solid #eee;
+
+  .nav-link-sign-in {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 15px;
+    color: #555;
+
+  }
+}
+
+/* اسم البراند */
+.brand {
+  font-family: var(--font-headline);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: #000;
+  text-transform: uppercase;
+}
+
+/* الروابط */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #555;
+  /* رمادي غامق */
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+/* hover */
+.nav-links li a:hover {
+  color: rgb(32, 204, 32);
+}
+
+/* الصفحة النشطة */
+.nav-links li a.active {
+  color: rgb(32, 204, 32);
+  font-weight: bold;
+}
+
+/* أيقونة السلة */
+.cart a {
+  font-size: 22px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.cart a:hover {
+  color: rgb(32, 204, 32);
+}
+
+/* ===================================
+   MAIN
+=================================== */
+.main-content {
+  padding-top: 5rem;
+}
+
+/* ===================================
+   HERO
+=================================== */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 0 1.5rem;
+  background: var(--primary);
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 0 6rem;
+  }
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* 👇 مكان صورة الهيرو — استبدل الـ div بـ <img> */
+.hero-img-slot {
+  width: 100%;
+  height: 100%;
+  background: #0a2a4a;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--primary), rgba(0, 27, 61, 0.4), transparent);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 56rem;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background: var(--secondary);
+  color: var(--primary);
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+}
+
+.pulse-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.hero-title {
+  font-family: var(--font-headline);
+  font-weight: 900;
+  font-style: italic;
+  font-size: clamp(3rem, 10vw, 6rem);
+  color: #fff;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.text-green {
+  color: var(--secondary);
+}
+
+.hero-desc {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  max-width: 32rem;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+}
+
+.hero-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+
+.btn-green {
+  background: var(--secondary);
+  color: var(--primary);
+  padding: 1.25rem 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-green:hover {
+  transform: scale(1.05);
+}
+
+.btn-green:active {
+  transform: scale(0.95);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.25rem 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#none {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===================================
+   SHARED LAYOUT
+=================================== */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-light {
+  padding: 8rem 1.5rem;
+  background: #fff;
+}
+
+@media (min-width: 768px) {
+  .section-light {
+    padding: 8rem 6rem;
+  }
+}
+
+.section-border-top {
+  border-top: 1px solid var(--surface-cont);
+}
+
+.section-label-block {
+  margin-bottom: 4rem;
+}
+
+.label-green {
+  display: block;
+  color: var(--secondary);
+  font-weight: 900;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  margin-bottom: 0.25rem;
+}
+
+.label-green.small {
+  font-size: 8px;
+  margin-bottom: 0.25rem;
+}
+
+.section-title {
+  font-family: var(--font-headline);
+  font-weight: 900;
+  font-style: italic;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--primary);
+  line-height: 1;
+}
+
+/* ===================================
+   ARENAS GRID
+=================================== */
+.arenas-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .arenas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .arenas-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.arena-card {
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.10);
+  border: 1px solid var(--surface-cont);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 👇 مكان صور الملاعب */
+.card-img-wrap {
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 16/10;
+}
+
+.card-img-slot {
+  width: 100%;
+  height: 100%;
+  background: #b8c8d8;
+  display: block;
+  /* استبدل بـ: <img src="..." style="width:100%;height:100%;object-fit:cover;"> */
+}
+
+.card-body {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.arena-name {
+  font-family: var(--font-headline);
+  font-weight: 900;
+  font-style: italic;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+}
+
+.arena-meta {
+  display: flex;
+  gap: 1rem;
+  color: var(--on-surface-var);
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.icon-xs {
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
+.btn-book-full {
+  margin-top: auto;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  padding: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-book-full:hover {
+  background: var(--secondary);
+  color: #000;
+}
+
+.card-row-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.arena-desc-sm {
+  color: var(--on-surface-var);
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.price-md {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--primary);
+}
+
+.btn-arrow-text {
+  background: none;
+  border: none;
+  font-family: var(--font-headline);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  font-size: 1.125rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: gap 0.2s;
+}
+
+.btn-arrow-text:hover {
+  gap: 0.5rem;
+}
+
+.btn-pill-green {
+  background: var(--secondary);
+  color: var(--primary);
+  padding: 0.625rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dark Gym Card */
+.arena-dark-card {
+  background: var(--primary);
+  border: none;
+  position: relative;
+  min-height: 18rem;
+}
+
+@media (min-width: 1024px) {
+  .arena-dark-card {
+    grid-column: span 3;
+  }
+}
+
+.dark-card-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.dark-card-bg .card-img-slot {
+  height: 100%;
+  background: #1a3a5c;
+}
+
+.dark-opacity {
+  opacity: 0.4 !important;
+}
+
+.dark-card-inner {
+  position: relative;
+  z-index: 10;
+  padding: 3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .dark-card-inner {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+.badge-elite {
+  display: inline-block;
+  background: var(--secondary);
+  color: var(--primary);
+  padding: 0.25rem 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+}
+
+.dark-card-title {
+  font-family: var(--font-headline);
+  font-weight: 900;
+  font-style: italic;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.dark-card-desc {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  max-width: 32rem;
+}
+
+.dark-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.price-green-big {
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: var(--secondary);
+}
+
+.price-sub {
+  font-size: 1rem;
+  opacity: 0.6;
+}
+
+.btn-white-dark {
+  background: #fff;
+  color: var(--primary);
+  padding: 1.25rem 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-white-dark:hover {
+  background: var(--secondary);
+}
+
+/* ===================================
+   GEAR HEADER & FILTERS
+=================================== */
+.gear-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .gear-header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+
+/* ===================================
+   PRODUCTS GRID
+=================================== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  row-gap: 4rem;
+}
+
+@media (min-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.product-img-wrap {
+  aspect-ratio: 1;
+  background: var(--surface-low);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  border: 1px solid var(--surface-cont);
+  position: relative;
+}
+
+/* 👇 مكان صور المنتجات */
+.product-img-slot {
+  width: 100%;
+  height: 100%;
+  background: #dde4ed;
+  transition: transform 0.5s;
+  /* استبدل بـ <img src="..." style="width:100%;height:100%;object-fit:cover;"> */
+}
+
+.product-card:hover .product-img-slot {
+  transform: scale(1.1);
+}
+
+.badge-choice {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: var(--secondary);
+  color: var(--primary);
+  padding: 0.125rem 0.5rem;
+  font-size: 8px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.product-cat {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--secondary);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.25rem;
+}
+
+.product-name {
+  font-family: var(--font-headline);
+  font-weight: 900;
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .product-name {
+    font-size: 1.125rem;
+  }
+}
+
+.product-price {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--primary);
+  margin-top: 0.5rem;
+}
+
+/* ===================================
+   CTA SECTION
+=================================== */
+.cta-section {
+  padding: 8rem 1.5rem;
+  background: var(--primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(107, 254, 156, 0.2);
+  color: var(--secondary);
+  border: 1px solid rgba(107, 254, 156, 0.3);
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 2rem;
+}
+
+.ping-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--secondary);
+  border-radius: 50%;
+  animation: ping 1.2s infinite;
+}
+
+@keyframes ping {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.6);
+    opacity: 0.4;
+  }
+}
+
+.cta-title {
+  font-family: var(--font-headline);
+  font-weight: 900;
+  font-style: italic;
+  font-size: clamp(2.5rem, 9vw, 6rem);
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 0.9;
+  margin-bottom: 3rem;
+}
+
+.cta-card {
+  width: 100%;
+  max-width: 32rem;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 1.5rem;
+}
+
+.cta-desc {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+}
+
+.btn-join {
+  width: 100%;
+  background: var(--secondary);
+  color: var(--primary);
+  padding: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 1.125rem;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.btn-join:hover {
+  box-shadow: 0 0 50px rgba(107, 254, 156, 0.35);
+  transform: translateY(-3px);
+}
+
+/* ===================================
+   FOOTER — أسود + أخضر (نفس الصفحة الأولى)
+=================================== */
+.footer {
+  background: #f1f5f9;
+  color: rgba(9, 9, 9, 0.77);
+  padding: 6rem 2.5rem 8rem;
+}
+
+.footer-inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.footer-logo {
+  font-family: var(--font-headline);
+  font-weight: 900;
+  font-style: italic;
+  color: #000;
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  margin-bottom: 2.5rem;
+}
+
+.footer-tagline {
+  color: rgba(65, 64, 64, 0.5);
+  text-align: center;
+  max-width: 40rem;
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin-bottom: 4rem;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem 4rem;
+  margin-bottom: 5rem;
+}
+
+.footer-nav a {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(65, 64, 64, 0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+  color: #4ade80;
+}
+
+.footer-copy {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #4ade80;
+  padding-top: 2rem;
+  width: 100%;
+  text-align: center;
+}
+
+/* ===================================
+   BOTTOM NAV (Mobile Only)
+=================================== */
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  padding: 1rem;
+  background: var(--primary);
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.35);
+}
+
+@media (min-width: 768px) {
+  .bottom-nav {
+    display: none;
+  }
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(65, 64, 64, 0.5);
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.75rem;
+  gap: 2px;
+}
+
+.nav-item span:last-child {
+  font-size: 8px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-top: 2px;
+}
+
+.nav-item.active {
+  background: var(--secondary);
+  color: var(--primary);
+}

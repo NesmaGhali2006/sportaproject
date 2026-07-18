@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart | Sporta</title>
+  <link rel="stylesheet" href="../Css/cart.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <nav class="navbar">
+        <!-- اسم البراند -->
+        <div class="brand">sporta</div>
+
+        <!-- الروابط -->
+        <ul class="nav-links">
+            <li><a href="../home.html">Home</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./contact.html">Contact Us</a></li>
+        </ul>
+    <button class="cart-btn">
+      <a class="nav-link-sign-in" href="sign_in.html" id="none">Sign In</a>
+      🛒 <span class="cart-count" id="cartCount">0</span>
+    </button>
+    </nav>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+    <div class="container">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb">
+        <a href="../home.html">Shop</a>
+        <span>›</span>
+        <span class="current">Your Cart</span>
+      </nav>
+
+      <!-- Page Title -->
+      <div class="page-title-row">
+        <h1 class="page-title">Your Cart</h1>
+        <span class="item-count" id="itemCountLabel">0 Items</span>
+      </div>
+
+      <!-- Cart Layout -->
+      <div class="cart-layout" id="cartLayout">
+
+        <!-- ===== LEFT: Cart Items ===== -->
+        <div class="cart-items" id="cartItems">
+          <!-- Items rendered dynamically by cart.js from localStorage -->
+        </div>
+
+        <!-- ===== RIGHT: Order Summary ===== -->
+        <aside class="order-summary">
+
+          <h2 class="summary-title">Order Summary</h2>
+
+          <div class="summary-rows">
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span id="subtotal">$0.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Shipping</span>
+              <span class="free-tag">FREE</span>
+            </div>
+            <div class="summary-row total-row">
+              <span>Total</span>
+              <span id="total">$0.00</span>
+            </div>
+          </div>
+
+          <!-- Promo Code -->
+          <div class="promo-section">
+            <p class="promo-label">Promo Code</p>
+            <div class="promo-input-row">
+              <input type="text" id="promoInput" placeholder="Enter code..." />
+              <button class="promo-btn" id="promoBtn">Apply</button>
+            </div>
+            <p class="promo-msg" id="promoMsg"></p>
+          </div>
+
+          <!-- Checkout Button -->
+          <button class="btn-checkout">
+            Proceed to Checkout <span class="arrow">→</span>
+          </button>
+
+          <!-- Continue Shopping -->
+          <a href="../home.html" class="btn-continue">
+            ← Continue Shopping
+          </a>
+
+        </aside>
+
+      </div>
+
+      <!-- ===== EMPTY CART STATE (hidden by default) ===== -->
+      <div class="empty-cart" id="emptyCart" style="display:none;">
+        <div class="empty-icon">🛒</div>
+        <h2>Your cart is empty</h2>
+        <p>Looks like you haven't added anything yet.</p>
+        <a href="../home.html" class="btn-shop-now">Shop Now →</a>
+      </div>
+
+      <!-- ===== RELATED PRODUCTS ===== -->
+      <section class="related" id="relatedSection" style="display:none;">
+        <div class="related-header">
+          <h2>You Might Also Like</h2>
+          <a href="#">Shop All</a>
+        </div>
+        <div class="cards-grid">
+
+          <div class="card" onclick="quickAdd(this, 'Kinetic Court Shoes', 145)">
+            <div class="card-img">
+              <img src="../Assets/shoes.jpg" alt="Court Shoes" />
+              <button class="quick-add-btn">+ Add to Cart</button>
+            </div>
+            <div class="card-info">
+              <p class="card-tag">Footwear</p>
+              <h4>Kinetic Court Shoes</h4>
+              <p class="card-price">$145.00</p>
+            </div>
+          </div>
+
+          <div class="card" onclick="quickAdd(this, 'booking court', 85)">
+            <div class="card-img">
+              <img src="../Assets/Yard.jpeg" alt="court " />
+              <button class="quick-add-btn">+ Add to Cart</button>
+            </div>
+            <div class="card-info">
+              <p class="card-tag">booking court</p>
+              <h4>booking court</h4>locit
+              <p class="card-price">$85.00 /hr</p>
+            </div>
+          </div>
+
+          <div class="card" onclick="quickAdd(this, 'Sporta t-shirt', 90 )">
+            <div class="card-img">
+              <img src="../Assets/te-shirt.png" alt="t-shirt" />
+              <button class="quick-add-btn">+ Add to Cart</button>
+            </div>
+            <div class="card-info">
+              <p class="card-tag">Pro Series</p>
+              <h4>Sporta t-shirt</h4>
+              <p class="card-price">$90.00</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-img">
+              <img src="../Assets/racket.jpg" alt="Racket" />
+              <button class="quick-add-btn">+ Add to Cart</button>
+            </div>
+            <div class="card-info">
+              <p class="card-tag">Pro Series</p>
+              <h4>SEIP Pro Racket</h4>
+              <p class="card-price">$185.00</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ===== BOTTOM NAV (Mobile) ===== -->
+  <nav class="bottom-nav">
+    <button onclick="setActiveNav(this)"><span class="nav-icon">🏠</span>Home</button>
+    <button onclick="setActiveNav(this)"><span class="nav-icon">🏆</span>Shop</button>
+    <button class="active" onclick="setActiveNav(this)"><span class="nav-icon">🛍️</span>Cart</button>
+    <button onclick="setActiveNav(this)"><span class="nav-icon">📋</span>Orders</button>
+  </nav>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-logo">SPORTA</div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Shipping</a>
+      <a href="#">Returns</a>
+    </div>
+    <p class="footer-copy">© 2024 SPORTA KINETIC ARENA. ALL RIGHTS RESERVED.</p>
+  </footer>
+
+  <script src="../Js/cart.js"></script>
+</body>
+</html>

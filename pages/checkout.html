@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | Sporta</title>
+  <link rel="stylesheet" href="../Css/checkout.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <nav class="navbar">
+    <div class="brand">sporta</div>
+    <ul class="nav-links">
+      <li><a href="../home.html">Home</a></li>
+      <li><a href="./about.html">About Us</a></li>
+      <li><a href="./contact.html">Contact Us</a></li>
+    </ul>
+    <button class="cart-btn">
+      <a class="nav-link-sign-in" href="sign_in.html" id="none">Sign In</a>
+      🛒 <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </nav>
+</header>
+
+<!-- ===== MAIN ===== -->
+<main>
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+      <a href="../home.html">Shop</a>
+      <span>›</span>
+      <a href="./cart.html">Your Cart</a>
+      <span>›</span>
+      <span class="current">Checkout</span>
+    </nav>
+
+    <!-- Page Title -->
+    <div class="page-title-row">
+      <h1 class="page-title">Checkout</h1>
+    </div>
+
+    <!-- Checkout Layout -->
+    <div class="checkout-layout">
+
+      <!-- ===== LEFT: Form ===== -->
+      <div class="checkout-form-wrap">
+        <h2 class="section-title">Shipping Information</h2>
+
+        <form id="checkoutForm" novalidate>
+
+          <!-- Full Name -->
+          <div class="field-group">
+            <label for="fullName">Full Name <span class="required">*</span></label>
+            <input type="text" id="fullName" placeholder="Enter your full name" autocomplete="name" />
+            <span class="field-error" id="fullNameError"></span>
+          </div>
+
+          <!-- Email -->
+          <div class="field-group">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" placeholder="you@example.com" autocomplete="email" />
+            <span class="field-error" id="emailError"></span>
+          </div>
+
+          <!-- Address -->
+          <div class="field-group">
+            <label for="address">Delivery Address <span class="required">*</span></label>
+            <textarea id="address" placeholder="Enter your full delivery address" rows="3" autocomplete="street-address"></textarea>
+            <span class="field-error" id="addressError"></span>
+          </div>
+
+          <!-- Phone -->
+          <div class="field-group">
+            <label for="phone">Phone Number <span class="required">*</span></label>
+            <input type="tel" id="phone" placeholder="Numbers only (e.g. 01012345678)" autocomplete="tel" />
+            <span class="field-error" id="phoneError"></span>
+          </div>
+
+          <!-- Payment Method -->
+          <div class="field-group">
+            <label class="label-payment">Payment Method <span class="required">*</span></label>
+            <div class="payment-options">
+
+              <label class="payment-card" id="payCard_cod">
+                <input type="radio" name="payment" value="Cash on Delivery" />
+                <span class="payment-icon">💵</span>
+                <span class="payment-label">Cash on Delivery</span>
+                <span class="payment-check">✓</span>
+              </label>
+
+              <label class="payment-card" id="payCard_instapay">
+                <input type="radio" name="payment" value="InstaPay (Phone Cash)" />
+                <span class="payment-icon">📲</span>
+                <span class="payment-label">InstaPay (Phone Cash)</span>
+                <span class="payment-check">✓</span>
+              </label>
+
+              <label class="payment-card" id="payCard_vodafone">
+                <input type="radio" name="payment" value="Vodafone Cash" />
+                <span class="payment-icon">📶</span>
+                <span class="payment-label">Vodafone Cash</span>
+                <span class="payment-check">✓</span>
+              </label>
+
+            </div>
+            <span class="field-error" id="paymentError"></span>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn-place-order">
+            Place Order <span class="arrow">→</span>
+          </button>
+
+        </form>
+      </div>
+
+      <!-- ===== RIGHT: Order Summary ===== -->
+      <aside class="checkout-summary">
+        <h2 class="summary-title">Order Summary</h2>
+
+        <div class="summary-items" id="summaryItems">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="summary-rows">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span id="summarySubtotal">$0.00</span>
+          </div>
+          <div class="summary-row">
+            <span>Shipping</span>
+            <span class="free-tag">FREE</span>
+          </div>
+          <div class="summary-row total-row">
+            <span>Total</span>
+            <span id="summaryTotal">$0.00</span>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-logo">SPORTA</div>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Shipping</a>
+    <a href="#">Returns</a>
+  </div>
+  <p class="footer-copy">© 2024 SPORTA KINETIC ARENA. ALL RIGHTS RESERVED.</p>
+</footer>
+
+<script>
+  // ── Cart helpers ────────────────────────────────────────────
+  const CART_KEY = 'sporta_cart';
+  function getCart() {
+    try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+    catch { return []; }
+  }
+
+  // ── Badge ────────────────────────────────────────────────────
+  function updateBadge() {
+    var count = getCart().reduce(function(s, i){ return s + (i.qty || 1); }, 0);
+    var el = document.getElementById('cartCount');
+    if (el) el.textContent = count;
+  }
+
+  // ── Read saved pricing snapshot from cart page ───────────────
+  function getPricing() {
+    try { return JSON.parse(localStorage.getItem('sporta_pricing')) || null; }
+    catch { return null; }
+  }
+
+  // ── Populate summary sidebar ─────────────────────────────────
+  function populateSummary() {
+    var cart      = getCart();
+    var pricing   = getPricing();
+    var container = document.getElementById('summaryItems');
+    container.innerHTML = '';
+
+    // Line items
+    cart.forEach(function(item) {
+      var line = item.price * (item.qty || 1);
+      var div = document.createElement('div');
+      div.className = 'summary-item';
+      div.innerHTML =
+        '<span class="si-name">' + item.name + (item.qty > 1 ? ' \xd7' + item.qty : '') + '</span>' +
+        '<span class="si-price">$' + line.toFixed(2) + '</span>';
+      container.appendChild(div);
+    });
+
+    // Use saved pricing if available, otherwise recalculate from cart
+    var subtotal, discountAmount, discountPct, finalTotal;
+    if (pricing) {
+      subtotal       = parseFloat(pricing.subtotal);
+      discountPct    = parseFloat(pricing.discountPct);
+      discountAmount = parseFloat(pricing.discountAmount);
+      finalTotal     = parseFloat(pricing.finalTotal);
+    } else {
+      subtotal       = cart.reduce(function(s, i){ return s + (i.price * (i.qty || 1)); }, 0);
+      discountPct    = 0;
+      discountAmount = 0;
+      finalTotal     = subtotal;
+    }
+
+    document.getElementById('summarySubtotal').textContent = '$' + subtotal.toFixed(2);
+
+    // Show or hide discount row
+    var discountRow = document.getElementById('summaryDiscountRow');
+    if (discountPct > 0) {
+      if (!discountRow) {
+        // Insert discount row before the total row
+        var totalRow = document.querySelector('.summary-rows .total-row').parentElement;
+        var dr = document.createElement('div');
+        dr.className = 'summary-row';
+        dr.id = 'summaryDiscountRow';
+        dr.innerHTML = '<span>Discount (' + discountPct + '%)</span><span id="summaryDiscount" style="color:var(--green);">-$' + discountAmount.toFixed(2) + '</span>';
+        totalRow.insertBefore(dr, document.querySelector('.summary-rows .total-row'));
+      } else {
+        discountRow.querySelector('span:first-child').textContent = 'Discount (' + discountPct + '%)';
+        discountRow.querySelector('span:last-child').textContent  = '-$' + discountAmount.toFixed(2);
+      }
+    } else if (discountRow) {
+      discountRow.remove();
+    }
+
+    document.getElementById('summaryTotal').textContent = '$' + finalTotal.toFixed(2);
+  }
+
+  // ── Highlight active payment card ────────────────────────────
+  document.querySelectorAll('.payment-card').forEach(function(card) {
+    var radio = card.querySelector('input[type="radio"]');
+    radio.addEventListener('change', function() {
+      document.querySelectorAll('.payment-card').forEach(function(c){ c.classList.remove('selected'); });
+      if (radio.checked) card.classList.add('selected');
+    });
+  });
+
+  // ── Validation helpers ───────────────────────────────────────
+  function showError(fieldId, msg) {
+    var input = document.getElementById(fieldId);
+    var errEl = document.getElementById(fieldId + 'Error');
+    if (input) input.classList.add('invalid');
+    if (errEl) errEl.textContent = msg;
+  }
+  function clearError(fieldId) {
+    var input = document.getElementById(fieldId);
+    var errEl = document.getElementById(fieldId + 'Error');
+    if (input) input.classList.remove('invalid');
+    if (errEl) errEl.textContent = '';
+  }
+  ['fullName','email','address','phone'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('input', function(){ clearError(id); });
+  });
+  document.querySelectorAll('input[name="payment"]').forEach(function(r) {
+    r.addEventListener('change', function(){
+      document.getElementById('paymentError').textContent = '';
+    });
+  });
+
+  // ── Form submit ──────────────────────────────────────────────
+  document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var fullName = document.getElementById('fullName').value.trim();
+    var email    = document.getElementById('email').value.trim();
+    var address  = document.getElementById('address').value.trim();
+    var phone    = document.getElementById('phone').value.trim();
+    var payment  = document.querySelector('input[name="payment"]:checked');
+
+    var valid = true;
+
+    // Clear all errors first
+    ['fullName','email','address','phone'].forEach(clearError);
+    document.getElementById('paymentError').textContent = '';
+
+    if (!fullName) {
+      showError('fullName', 'Full name is required.');
+      valid = false;
+    }
+
+    if (!email) {
+      showError('email', 'Email address is required.');
+      valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showError('email', 'Please enter a valid email address (must include @).');
+      valid = false;
+    }
+
+    if (!address) {
+      showError('address', 'Delivery address is required.');
+      valid = false;
+    }
+
+    if (!phone) {
+      showError('phone', 'Phone number is required.');
+      valid = false;
+    } else if (!/^\d+$/.test(phone)) {
+      showError('phone', 'Phone number must contain numbers only.');
+      valid = false;
+    }
+
+    if (!payment) {
+      document.getElementById('paymentError').textContent = 'Please select a payment method.';
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    // Save order data to localStorage for confirmation page
+    var cart    = getCart();
+    var pricing = getPricing();
+
+    var subtotal, discountPct, discountAmount, finalTotal;
+    if (pricing) {
+      subtotal       = pricing.subtotal;
+      discountPct    = pricing.discountPct;
+      discountAmount = pricing.discountAmount;
+      finalTotal     = pricing.finalTotal;
+    } else {
+      var raw  = cart.reduce(function(s, i){ return s + (i.price * (i.qty || 1)); }, 0);
+      subtotal       = raw.toFixed(2);
+      discountPct    = 0;
+      discountAmount = '0.00';
+      finalTotal     = raw.toFixed(2);
+    }
+
+    var orderData = {
+      fullName       : fullName,
+      email          : email,
+      address        : address,
+      phone          : phone,
+      payment        : payment.value,
+      subtotal       : subtotal,
+      discountPct    : discountPct,
+      discountAmount : discountAmount,
+      total          : finalTotal,
+      items          : cart
+    };
+    localStorage.setItem('sporta_order', JSON.stringify(orderData));
+
+    // Redirect to confirmation
+    window.location.href = './confirmation.html';
+  });
+
+  // ── Boot ─────────────────────────────────────────────────────
+  updateBadge();
+  populateSummary();
+</script>
+
+</body>
+</html>

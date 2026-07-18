@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPORTA - Elite Pro Padel Racket</title>
+  <link rel="stylesheet" href="../Css/prod2.css" />
+  <script src="../Js/cart-manager.js" defer></script>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-left">
+      <span class="logo">SPORTA</span>
+    </div>
+
+
+    <button class="cart-btn"><a href="cart.html" id="none"> 🛒</a></button>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+    <div class="container">
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb">
+        <a href="#">Shop</a>
+        <span class="sep">›</span>
+        <a href="#">Equipment</a>
+        <span class="sep">›</span>
+        <span class="current">Elite Pro Padel Racket</span>
+      </nav>
+
+      <!-- Product Section -->
+      <div class="product-grid">
+
+        <!-- Gallery -->
+        <div class="gallery">
+          <div class="main-img">
+            <img src="../Assets/padel_racket.jpg" alt="Elite Pro Padel Racket" />
+            <span class="gallery-badge">Elite Series</span>
+          </div>
+          <div class="thumb">
+            <img src="../Assets/racket.jpg" alt="Racket close-up" />
+          </div>
+          <div class="thumb">
+            <img src="../Assets/racket_2.jpg" alt="Player in action" />
+          </div>
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
+
+          <div>
+            <h1 class="product-title font-lexend">Elite Pro Padel Racket</h1>
+            <p class="product-grade">
+              <span class="pulse-dot"></span>
+              Performance Grade
+            </p>
+            <div class="product-price">$210.00</div>
+          </div>
+
+          <!-- Color Options -->
+          <div>
+            <p class="section-label">Color Options</p>
+            <div class="color-options">
+              <button class="color-btn" onclick="selectColor(this)">
+                <div class="color-circle neon-green active"></div>
+                <span>Neon Green</span>
+              </button>
+              <button class="color-btn" onclick="selectColor(this)">
+                <div class="color-circle stealth-black"></div>
+                <span>Stealth Black</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Features -->
+          <div class="features-box">
+            <div class="feature-item">
+              <span class="feature-icon">✅</span>
+              <div>
+                <h4>12K Carbon Fiber</h4>
+                <p>Maximum power with zero compromise on durability.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">🛡️</span>
+              <div>
+                <h4>Shock-Grip Tech</h4>
+                <p>Proprietary vibration dampening for wrist protection.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Buttons -->
+          <div>
+            <button class="btn-primary" onclick="handleAddToCart()">
+              Add to Cart 🛍️
+            </button>
+            <button class="btn-secondary">
+              📍 Find in Store
+            </button>
+          </div>
+
+          <!-- Specs Table -->
+          <div class="specs">
+            <h3>Technical Specifications</h3>
+            <table>
+              <tr>
+                <td>Weight</td>
+                <td>365 - 375g</td>
+              </tr>
+              <tr>
+                <td>Balance</td>
+                <td>High (270mm)</td>
+              </tr>
+              <tr>
+                <td>Shape</td>
+                <td>Diamond</td>
+              </tr>
+              <tr>
+                <td>Frame</td>
+                <td>Carbon Double Tube</td>
+              </tr>
+            </table>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Related Products -->
+      <section class="related">
+        <div class="related-header">
+          <h2 class="font-lexend">Complete The Kit</h2>
+          <a href="#">Shop Equipment</a>
+        </div>
+
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-img">
+              <img src="../Assets/ball.jpg" alt="Sporta Velocity Balls" />
+            </div>
+            <div class="card-info">
+              <p class="card-tag">Pro Series</p>
+              <h4>Sporta Velocity Balls</h4>
+              <p class="card-price">$15.00</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-img">
+              <img src="../Assets/shoes.jpg" alt="Kinetic Court Shoes" />
+            </div>
+            <div class="card-info">
+              <p class="card-tag">Footwear</p>
+              <h4>Kinetic Court Shoes</h4>
+              <p class="card-price">$145.00</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ===== BOTTOM NAV (Mobile) ===== -->
+  <nav class="bottom-nav">
+    <button onclick="setActiveNav(this)">
+      <span class="nav-icon">🏠</span>
+      Home
+    </button>
+    <button class="active" onclick="setActiveNav(this)">
+      <span class="nav-icon">🏆</span>
+      Shop
+    </button>
+    <button onclick="setActiveNav(this)">
+      <span class="nav-icon">🛍️</span>
+      Cart
+    </button>
+    <button onclick="setActiveNav(this)">
+      <span class="nav-icon">📋</span>
+      Orders
+    </button>
+  </nav>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-logo">SPORTA</div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Shipping</a>
+      <a href="#">Returns</a>
+    </div>
+    <p class="footer-copy">© 2024 SPORTA KINETIC ARENA. ALL RIGHTS RESERVED.</p>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    function selectColor(btn) {
+      document.querySelectorAll('.color-circle').forEach(c => c.classList.remove('active'));
+      btn.querySelector('.color-circle').classList.add('active');
+    }
+
+    function handleAddToCart() {
+      const colorEl = document.querySelector('.color-circle.active');
+      const colorName = colorEl ? colorEl.closest('.color-btn').querySelector('span').textContent : 'Neon Green';
+      addToCart({
+        id: 'prod2',
+        name: 'Elite Pro Padel Racket',
+        tag: 'Elite Series',
+        variant: 'Color: ' + colorName,
+        price: 210,
+        image: '../Assets/padel_racket.jpg'
+      });
+      const btn = document.querySelector('.btn-primary');
+      btn.textContent = '✅ Added!';
+      btn.style.background = '#006d37';
+      setTimeout(() => {
+        window.location.href = 'cart.html';
+      }, 900);
+    }
+
+    function setActiveNav(btn) {
+      document.querySelectorAll('.bottom-nav button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

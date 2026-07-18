@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In | Sporta</title>
+  <link rel="stylesheet" href="../Css/sign_in.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <main class="page-wrapper">
+
+    <!-- ===== LEFT SIDE: Branding ===== -->
+    <section class="left-panel">
+      <!-- Background Image -->
+      <div class="left-bg">
+        <img src="../Assets/Sport.jpeg" alt="Sporta court" />
+      </div>
+
+      <!-- Content -->
+      <div class="left-content">
+        <h1 class="left-logo">Sporta</h1>
+        <p class="left-tagline">
+          ENGINEERED FOR PERFORMANCE.<br />THE ARENA AWAITS THE NEXT MOVE.
+        </p>
+        <div class="left-divider">
+          <span class="divider-line"></span>
+          <span class="divider-text">Athlete Access Only</span>
+        </div>
+      </div>
+
+      <!-- Decorative blur circle -->
+      <div class="left-decor"></div>
+    </section>
+
+    <!-- ===== RIGHT SIDE: Sign In Form ===== -->
+    <section class="right-panel">
+
+      <!-- Mobile Logo -->
+      <div class="mobile-logo">
+        <h1>SPORTA</h1>
+      </div>
+
+      <div class="form-wrapper">
+
+        <!-- Header -->
+        <header class="form-header">
+          <div class="badge">
+            ⚡ Performance Portal
+          </div>
+          <h2>Sign In</h2>
+          <p>Welcome back to the arena. Enter your credentials to continue.</p>
+        </header>
+
+        <!-- Form -->
+        <form id="signinForm" novalidate action="../home.html">
+
+          <!-- Email -->
+          <div class="field-group">
+            <label for="email">Email Address</label>
+            <div class="input-wrap">
+              <input
+                type="email"
+                id="email"
+                placeholder="athlete@sporta.com"
+                autocomplete="email"
+              />
+              <div class="underline-bar"></div>
+            </div>
+            <span class="error-msg" id="emailError"></span>
+          </div>
+
+          <!-- Password -->
+          <div class="field-group">
+            <div class="field-label-row">
+              <label for="password">Password</label>
+              <a href="#" class="forgot-link">Forgot Password?</a>
+            </div>
+            <div class="input-wrap">
+              <input
+                type="password"
+                id="password"
+                placeholder="••••••••"
+                autocomplete="current-password"
+              />
+              <button type="button" class="toggle-pass" id="togglePass">👁️</button>
+              <div class="underline-bar"></div>
+            </div>
+            <span class="error-msg" id="passwordError"></span>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn-signin">
+            Sign In <span class="arrow">→</span>
+          </button>
+
+        </form>
+
+        <!-- Social Login -->
+        <div class="social-grid">
+          <button class="social-btn" id="appleBtn">🍎 Apple</button>
+          <button class="social-btn" id="googleBtn">🔵 Google</button>
+        </div>
+
+        <!-- Sign Up Link -->
+        <footer class="form-footer">
+          <p>Don't have an account? <a href="sign_up.html">Sign Up</a></p>
+        </footer>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom copyright -->
+  <div class="copyright-bar">
+    © 2024 Sporta. ENGINEERED FOR PERFORMANCE.
+  </div>
+
+  <script src="../Js/sign_in.js"></script>
+</body>
+</html>

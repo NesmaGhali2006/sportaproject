@@ -1,0 +1,210 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sporta - Support</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Plus_Jakarta_Sans:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Css/contact.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <nav class="navbar">
+        <!-- اسم البراند -->
+        <div class="brand">sporta</div>
+
+        <!-- الروابط -->
+        <ul class="nav-links">
+            <li><a href="../home.html">Home</a></li>
+            <li><a href="../pages/about.html" >About Us</a></li>
+            <li><a href="../pages/contact.html" class="active">Contact Us</a></li>
+        </ul>
+
+        <!-- أيقونة السلة -->
+        <div class="cart">
+            <a class="nav-link-sign-in" href="sign_in.html">Sign In</a>
+            <a href="./cart.html">🛒</a>
+        </div>
+    </nav>
+
+
+</header>
+
+<main class="content-wrapper">
+    <section class="hero-section">
+        <div class="badge">
+            <span class="line"></span>
+            <span class="badge-text">Contact Center</span>
+        </div>
+        <h2 class="main-title">
+            Get in <br><span class="highlight">Touch</span>
+        </h2>
+    </section>
+
+    <div class="bento-grid">
+        <div class="contact-info-column">
+            <div class="info-card">
+                <h3 class="card-title">Arena HQ</h3>
+                <div class="info-list">
+                    <div class="info-item">
+                        <div class="icon-box"><span class="material-symbols-outlined">location_on</span></div>
+                        <div class="text-box">
+                            <label>Visit Us</label>
+                            <p>750 Performance Way,<br>Elite Sports District, NY 10018</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon-box"><span class="material-symbols-outlined">call</span></div>
+                        <div class="text-box">
+                            <label>Call Anytime</label>
+                            <p>+1 (800) SPORTA</p>
+                            <span>Mon - Sun, 6AM - 11PM</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="icon-box"><span class="material-symbols-outlined">mail</span></div>
+                        <div class="text-box">
+                            <label>Email Support</label>
+                            <p class="email">support@sporta.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="status-chip">
+                <div class="status-left">
+                    <span class="dot-container">
+                        <span class="ping"></span>
+                        <span class="dot"></span>
+                    </span>
+                    <p>Live Support Active</p>
+                </div>
+                <p class="avg-time">Avg. response: 4 mins</p>
+            </div>
+
+            <div class="map-placeholder">
+                <img src="../Assets/contact.png"/>
+            </div>
+        </div>
+
+        <div class="form-column">
+            <div class="form-card">
+                <h3 class="form-title">Send a Message</h3>
+                <p class="form-desc">Our performance team is ready to assist with court bookings, gear inquiries, or training support.</p>
+                
+               <form id="contactForm">
+
+    <div class="form-row">
+
+        <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="name" placeholder="Avery Jenkins">
+            <small class="error" id="nameError"></small>
+        </div>
+
+        <div class="input-group">
+            <label>Email Address</label>
+            <input type="email" id="email" placeholder="avery@pro.com">
+            <small class="error" id="emailError"></small>
+        </div>
+
+    </div>
+
+    <div class="input-group">
+        <label>Subject</label>
+        <select id="choice">
+            <option value="">Choose Subject</option>
+            <option value="reservations">Court Reservations</option>
+            <option value="product">Product Inquiry</option>
+            <option value="events">Corporate Events</option>
+            <option value="support">Technical Support</option>
+        </select>
+        <small class="error" id="choiceError"></small>
+    </div>
+
+    <div class="input-group">
+        <label>Your Message</label>
+        <textarea id="message" rows="6" placeholder="How can we help you reach your peak performance?"></textarea>
+        <small class="error" id="messageError"></small>
+    </div>
+
+    <button type="button" class="submit-btn" id="sendBtn">
+        Send Message
+        <span class="material-symbols-outlined">trending_flat</span>
+    </button>
+
+</form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="main-footer">
+    <h2 class="footer-logo">SPORTA</h2>
+    <div class="footer-links">
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+        <a href="#">Cookies</a>
+    </div>
+    <p class="copyright">© 2024 SPORTA. ENGINEERED FOR PERFORMANCE.</p>
+</footer>
+<script>
+document.querySelector(".submit-btn").addEventListener("click", function (e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let choice = document.getElementById("choice").value;
+    let message = document.getElementById("message").value.trim();
+
+    let valid = true;
+
+    // clear errors
+    document.getElementById("nameError").innerText = "";
+    document.getElementById("emailError").innerText = "";
+    document.getElementById("choiceError").innerText = "";
+    document.getElementById("messageError").innerText = "";
+
+    // name
+    if (name === "") {
+        document.getElementById("nameError").innerText = "You forgot your name";
+        valid = false;
+    }
+
+    // email
+    if (email === "") {
+        document.getElementById("emailError").innerText = "You forgot your email";
+        valid = false;
+    } 
+    else if (!email.includes("@")) {
+        document.getElementById("emailError").innerText = "Invalid email";
+        valid = false;
+    }
+
+    // choice
+    if (choice === "") {
+        document.getElementById("choiceError").innerText = "Please select a subject";
+        valid = false;
+    }
+
+    // message
+    if (message === "") {
+        document.getElementById("messageError").innerText = "Message is required";
+        valid = false;
+    }
+
+    // success alert
+    if (valid) {
+        alert("Your message has been received. We will get back to you as soon as possible.");
+
+        document.getElementById("contactForm").reset();
+    }
+});
+</script>
+</body>
+</html>

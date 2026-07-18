@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ===== MAIN ===== -->
+<main>
+  <div class="container">
+      <!-- Icon & Heading -->
+      <div class="success-icon">🎉</div>
+      <h1 class="confirm-title">Order Confirmed Successfully!</h1>
+      <p class="confirm-subtitle">We will contact you soon and deliver your order.</p>
+
+      <!-- Divider -->
+      <div class="divider"></div>
+
+      <!-- Order Summary -->
+      <h2 class="summary-heading">Order Summary</h2>
+
+      <div class="order-details" id="orderDetails">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Items list -->
+      <div class="ordered-items-wrap" id="orderedItemsWrap" style="display:none;">
+        <h3 class="items-heading">Items Ordered</h3>
+        <div class="ordered-items" id="orderedItems"></div>
+      </div>
+
+      <!-- Total -->
+      <div class="confirm-total">
+        <span class="confirm-total-label">Total Paid</span>
+        <span class="confirm-total-value" id="confirmTotal">$0.00</span>
+      </div>
+
+      <!-- Divider -->
+      <div class="divider"></div>
+
+      <!-- Back to Home -->
+      <a href="" class="btn-home">
+        ← Back to Home
+      </a>
+
+    </div>
+
+  </div>
+</main>
+
+
+<script>
+  // ── Load order data ─────────────────────────────────────────
+  var orderData = null;
+  try {
+    orderData = JSON.parse(localStorage.getItem('sporta_order')) || null;
+  } catch(e) { orderData = null; }
+
+  var detailsContainer = document.getElementById('orderDetails');
+
+  if (orderData) {
+    // Build details rows
+    var rows = [
+      { label: '👤 Name',           value: orderData.fullName },
+      { label: '📧 Email',          value: orderData.email    },
+      { label: '📍 Address',        value: orderData.address  },
+      { label: '📞 Phone',          value: orderData.phone    },
+      { label: '💳 Payment Method', value: orderData.payment  },
+      { label: '🧾 Subtotal',       value: '$' + orderData.subtotal },
+    ];
+
+    // Only show discount row when a promo was applied
+    if (parseFloat(orderData.discountPct) > 0) {
+      rows.push({ label: '🏷️ Discount (' + orderData.discountPct + '%)', value: '-$' + orderData.discountAmount });
+    }
+
+    rows.forEach(function(row) {
+      var div = document.createElement('div');
+      div.className = 'detail-row';
+      div.innerHTML =
+        '<span class="detail-label">' + row.label + '</span>' +
+        '<span class="detail-value">' + row.value + '</span>';
+      detailsContainer.appendChild(div);
+    });
+
+    // Final total (post-discount)
+    document.getElementById('confirmTotal').textContent = '$' + orderData.total;
+
+    // Items
+    if (orderData.items && orderData.items.length > 0) {
+      var itemsWrap = document.getElementById('orderedItemsWrap');
+      var itemsContainer = document.getElementById('orderedItems');
+      itemsWrap.style.display = '';
+      orderData.items.forEach(function(item) {
+        var div = document.createElement('div');
+        div.className = 'ordered-item';
+        div.innerHTML =
+          '<span class="oi-name">' + item.name + (item.qty > 1 ? ' \xd7' + item.qty : '') + '</span>' +
+          '<span class="oi-price">$' + (item.price * (item.qty || 1)).toFixed(2) + '</span>';
+        itemsContainer.appendChild(div);
+      });
+    }
+
+    // Clear cart and pricing after successful order
+    localStorage.removeItem('sporta_cart');
+    localStorage.removeItem('sporta_pricing');
+
+  } else {
+    // No order data — show fallback message
+    detailsContainer.innerHTML =
+      '<p style="color:var(--text-muted);text-align:center;padding:20px 0;">No order details found.<br>' +
+      '<a href="../home.html" style="color:var(--green)">Return to shop</a></p>';
+  }
+
+  // ── Badge ────────────────────────────────────────────────────
+  var count = 0;
+  try {
+    var cart = JSON.parse(localStorage.getItem('sporta_cart')) || [];
+    count = cart.reduce(function(s, i){ return s + (i.qty || 1); }, 0);
+  } catch(e) {}
+  var badge = document.getElementById('cartCount');
+  if (badge) badge.textContent = count;
+</script>
+
+</body>
+</html>

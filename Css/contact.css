@@ -1,0 +1,371 @@
+:root {
+    --primary-black: #000000;
+    --secondary-green: #006d37;
+    --light-green: #6bfe9c;
+    --bg-light: #f8f9fa;
+    --surface: #ffffff;
+    --text-gray: #44474e;
+    --border-color: #e1e3e4;
+    --headline-font: 'Lexend', sans-serif;
+    --body-font: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-light);
+    font-family: var(--body-font);
+    color: var(--primary-black);
+    line-height: 1.5;
+}
+
+/* الناف بار */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 15px 30px;
+    border-bottom: 1px solid #eee;
+
+    .nav-link-sign-in {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 15px;
+    color: #555;
+
+  }
+}
+
+/* اسم البراند */
+.brand {
+  font-family: var(--font-headline);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: #000;
+  text-transform: uppercase;
+}
+
+/* الروابط */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #555; /* رمادي غامق */
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+/* hover */
+.nav-links li a:hover {
+  color: rgb(32, 204, 32);
+}
+
+/* الصفحة النشطة */
+.nav-links li a.active {
+  color: rgb(32, 204, 32);
+    font-weight: bold;
+}
+
+/* أيقونة السلة */
+.cart a {
+    font-size: 22px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.cart a:hover {
+  color: rgb(32, 204, 32);
+}
+
+
+.content-wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 8rem 1.5rem 4rem;
+}
+
+.hero-section {
+    margin-bottom: 4rem;
+}
+
+.badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.badge .line {
+    width: 48px;
+    height: 4px;
+    background-color: var(--secondary-green);
+    border-radius: 99px;
+}
+
+.badge-text {
+    color: var(--secondary-green);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+}
+
+.main-title {
+    font-family: var(--headline-font);
+    font-size: clamp(3.5rem, 10vw, 6rem);
+    font-weight: 900;
+    line-height: 0.9;
+    text-transform: uppercase;
+    letter-spacing: -4px;
+}
+
+.highlight {
+    color: #001b3d;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: 5fr 7fr;
+    }
+}
+
+.info-card, .form-card {
+    background: var(--surface);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+}
+
+.card-title {
+    font-family: var(--headline-font);
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.info-item {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.icon-box {
+    background: var(--primary-black);
+    color: var(--light-green);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.text-box label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--text-gray);
+    letter-spacing: 1px;
+}
+
+.text-box p {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.email {
+    text-decoration: underline;
+    text-decoration-color: var(--secondary-green);
+    text-underline-offset: 4px;
+}
+
+.status-chip {
+    background: #e6f7ef;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.status-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.dot-container {
+    position: relative;
+    width: 12px;
+    height: 12px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: var(--secondary-green);
+    border-radius: 50%;
+    display: block;
+}
+
+.ping {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary-green);
+    border-radius: 50%;
+    animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping {
+    75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+.map-placeholder {
+    margin-top: 2rem;
+    height: 250px;
+    border-radius: 1rem;
+    overflow: hidden;
+    filter: grayscale(1) contrast(1.2);
+}
+
+.map-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.form-title {
+    font-family: var(--headline-font);
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.form-desc {
+    color: var(--text-gray);
+    margin-bottom: 2.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+input, select, textarea {
+    width: 100%;
+    background: #f1f3f5;
+    border: none;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    background: #fff;
+    box-shadow: 0 0 0 2px var(--secondary-green);
+}
+
+.submit-btn {
+    background: var(--primary-black);
+    color: var(--light-green);
+    width: 100%;
+    padding: 1.25rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    gap: 1.5rem;
+}
+
+#none{
+    text-decoration: none;
+    color: inherit;
+}
+
+.main-footer {
+    background-color: #f1f3f5;
+    padding: 4rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-logo {
+    font-family: var(--headline-font);
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-links a {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    color: var(--text-gray);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.copyright {
+    color: #34d399;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}

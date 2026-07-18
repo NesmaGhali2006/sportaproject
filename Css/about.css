@@ -1,0 +1,677 @@
+ @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+/* ---------- CSS Variables ---------- */
+:root {
+  --color-primary:                   #000000;
+  --color-on-primary:                #ffffff;
+  --color-primary-container:         #001b3d;
+  --color-on-primary-container:      #6f84ac;
+  --color-secondary:                 #006d37;
+  --color-secondary-container:       #6bfe9c;
+  --color-on-secondary-container:    #00743a;
+  --color-secondary-fixed:           #6bfe9c;
+  --color-secondary-fixed-dim:       #4ae183;
+  --color-surface-container-lowest:  #ffffff;
+  --color-surface-container-low:     #f3f4f5;
+  --color-surface-container-highest: #e1e3e4;
+  --color-background:                #f8f9fa;
+  --color-on-surface:                #191c1d;
+  --color-on-surface-variant:        #44474e;
+  --font-headline: 'Lexend', sans-serif;
+  --font-body:     'Plus Jakarta Sans', sans-serif;
+} 
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  min-height: 100dvh;
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  font-family: var(--font-body);
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* الناف بار */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 15px 30px;
+    border-bottom: 1px solid #eee;
+
+.nav-link-sign-in {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 15px;
+    color: #555;
+
+  }
+}
+
+/* اسم البراند */
+.brand {
+  font-family: var(--font-headline);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: #000;
+  text-transform: uppercase;
+}
+
+/* الروابط */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #555; /* رمادي غامق */
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+/* hover */
+.nav-links li a:hover {
+  color: rgb(32, 204, 32);
+}
+
+/* الصفحة النشطة */
+.nav-links li a.active {
+  color: rgb(32, 204, 32);
+    font-weight: bold;
+}
+
+/* أيقونة السلة */
+.cart a {
+    font-size: 22px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.cart a:hover {
+  color: rgb(32, 204, 32);
+}
+
+/* ===========================
+   MAIN
+   =========================== */
+main { padding-top: 6rem; padding-bottom: 8rem; }
+
+/* ===========================
+   HERO
+   =========================== */
+.hero {
+  position: relative;
+  min-height: 618px;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  margin-bottom: 6rem;
+  overflow: hidden;
+}
+@media (min-width: 768px) { .hero { padding: 0 3rem; } }
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* ⬇ ضعي صورة الأرينا/الملعب هنا */
+.hero__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #000000 0%, #001b3d 100%);
+  opacity: 0.90;
+  z-index: 1;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 64rem;
+}
+
+.hero__badge {
+  display: inline-block;
+  background: var(--color-secondary-container);
+  color: var(--color-on-secondary-container);
+  padding: 0.25rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.625rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--font-headline);
+  margin-bottom: 1.5rem;
+}
+
+.hero__heading {
+  font-family: var(--font-headline);
+  font-size: clamp(3.5rem, 10vw, 6rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.hero__heading-accent { color: var(--color-secondary-fixed); }
+
+.hero__desc {
+  color: var(--color-on-primary-container);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  max-width: 42rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* ===========================
+   MISSION
+   =========================== */
+.mission {
+  padding: 0 1.5rem;
+  margin-bottom: 8rem;
+}
+@media (min-width: 768px) { .mission { padding: 0 3rem; } }
+
+.mission__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .mission__grid { grid-template-columns: 7fr 5fr; }
+}
+
+.mission__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.mission__eyebrow-line {
+  height: 2px;
+  width: 3rem;
+  background: var(--color-secondary);
+}
+.mission__eyebrow-text {
+  font-family: var(--font-headline);
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-secondary);
+}
+
+.mission__heading {
+  font-family: var(--font-headline);
+  font-size: clamp(2.25rem, 6vw, 3.75rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.mission__texts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 42rem;
+}
+
+.mission__text {
+  color: var(--color-on-surface-variant);
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+.mission__text strong { color: var(--color-on-surface); font-weight: 700; }
+
+/* Explore Facilities button — Hover → بيكبر */
+/* ⬇ غيري href للصفحة المناسبة */
+.btn-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--color-primary);
+  color: var(--color-secondary-fixed);
+  padding: 1rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+.btn-explore:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+.btn-explore:active { transform: scale(0.95); }
+
+.mission__img-wrap { position: relative; }
+
+.mission__img-card {
+  background: var(--color-surface-container-highest);
+  border-radius: 2rem;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 1;
+}
+
+/* ⬇ ضعي صورة اللاعب هنا — Hover: بتتحول من grayscale للألوان */
+.mission__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.7s ease;
+}
+.mission__img:hover { filter: grayscale(0%); }
+
+.mission__img-deco {
+  position: absolute;
+  bottom: -1.5rem;
+  left: -1.5rem;
+  width: 12rem;
+  height: 12rem;
+  background: var(--color-secondary-container);
+  border-radius: 1.5rem;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+/* ===========================
+   WHO WE ARE
+   =========================== */
+.who {
+  background: var(--color-surface-container-low);
+  padding: 6rem 1.5rem;
+  border-radius: 3rem;
+  margin: 0 1rem;
+}
+@media (min-width: 768px) {
+  .who { padding: 6rem 3rem; margin: 0 3rem; }
+}
+
+.who__header { text-align: center; margin-bottom: 4rem; }
+
+.who__heading {
+  font-family: var(--font-headline);
+  font-size: clamp(2.25rem, 6vw, 3.25rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.who__sub {
+  color: var(--color-on-surface-variant);
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.who__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .who__grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* The Collective card — Hover → أسود + أبيض */
+.collective-card {
+  grid-column: span 2;
+  background: var(--color-surface-container-lowest);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 40px rgba(0,27,61,0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+.collective-card:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.collective-card__icon-wrap {
+  width: 4rem;
+  height: 4rem;
+  background: var(--color-secondary-container);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: background 0.5s ease;
+}
+.collective-card:hover .collective-card__icon-wrap {
+  background: var(--color-secondary);
+}
+
+.collective-card__icon {
+  color: var(--color-secondary);
+  transition: color 0.5s ease;
+}
+.collective-card:hover .collective-card__icon { color: #000; }
+
+.collective-card__title {
+  font-family: var(--font-headline);
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.collective-card__text { opacity: 0.7; transition: opacity 0.5s; }
+.collective-card:hover .collective-card__text { opacity: 1; }
+
+.collective-card__avatars {
+  display: flex;
+  margin-top: 2rem;
+}
+.collective-card__avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  overflow: hidden;
+  margin-left: -1rem;
+  object-fit: cover;
+}
+.collective-card__avatar:first-child { margin-left: 0; }
+
+.collective-card__more {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--color-secondary-fixed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: #000;
+  border: 2px solid #fff;
+  margin-left: -1rem;
+}
+
+/* Arena card — Hover → الصورة بتكبر */
+.arena-card {
+  grid-column: span 2;
+  height: 16rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+@media (min-width: 768px) { .arena-card { height: auto; } }
+
+/* ⬇ ضعي صورة الملعب هنا */
+.arena-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+.arena-card:hover .arena-card__img { transform: scale(1.10); }
+
+.arena-card__label {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+}
+.arena-card__label span {
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.875rem;
+}
+
+/* Value cards */
+.value-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.value-card__icon {
+  color: var(--color-secondary);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.value-card__title {
+  font-family: var(--font-headline);
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.value-card__sub {
+  font-size: 0.625rem;
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ===========================
+   GEAR BANNER
+   =========================== */
+.gear-banner { margin-top: 8rem; padding: 0 1.5rem; }
+@media (min-width: 768px) { .gear-banner { padding: 0 3rem; } }
+
+.gear-banner__inner {
+  background: var(--color-primary);
+  border-radius: 3rem;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .gear-banner__inner { flex-direction: row; padding: 6rem; }
+}
+
+.gear-banner__text { position: relative; z-index: 1; }
+@media (min-width: 768px) { .gear-banner__text { width: 50%; } }
+
+.gear-banner__heading {
+  font-family: var(--font-headline);
+  font-size: clamp(2.25rem, 6vw, 3.75rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+.gear-banner__heading-accent { color: var(--color-secondary-fixed); }
+
+.gear-banner__desc {
+  color: var(--color-on-primary-container);
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+/* Shop button — Hover → السهم بيتحرك */
+/* ⬇ غيري href لرابط الشوب */
+.btn-shop {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-secondary-fixed);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-bottom: 2px solid var(--color-secondary-fixed);
+  padding-bottom: 0.5rem;
+  text-decoration: none;
+  transition: gap 0.2s ease, opacity 0.2s ease;
+  cursor: pointer;
+}
+.btn-shop:hover { gap: 1rem; opacity: 0.85; }
+
+.gear-banner__img-wrap {
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 768px) { .gear-banner__img-wrap { width: 50%; } }
+
+.gear-banner__glow {
+  position: absolute;
+  inset: -2.5rem;
+  background: var(--color-secondary);
+  filter: blur(100px);
+  opacity: 0.20;
+  animation: pulse 3s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.20; }
+  50%       { opacity: 0.35; }
+}
+
+/* ⬇ ضعي صورة الجيزة/الأحذية هنا */
+.gear-banner__img {
+  position: relative;
+  z-index: 1;
+  border-radius: 1rem;
+  transform: rotate(3deg);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  width: 100%;
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+footer {
+  width: 100%;
+  padding: 3rem 2rem 6rem;
+  background: #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.footer__brand {
+  font-family: var(--font-headline);
+  font-size: 1.125rem;
+  font-weight: 900;
+  color: #000;
+}
+
+.footer__links { display: flex; gap: 2rem; }
+
+/* ⬇ غيري href لكل واحدة للرابط الحقيقي */
+.footer__link {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #64748b;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+.footer__link:hover { color: #000; }
+
+.footer__copy {
+  font-family: var(--font-headline);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #64748b;
+}
+
+/* ===========================
+   BOTTOM NAV (Mobile only)
+   =========================== */
+.bottom-nav {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem 1rem 1.5rem;
+  background: rgba(255,255,255,0.70);
+  backdrop-filter: blur(24px);
+  z-index: 50;
+  border-radius: 1.5rem 1.5rem 0 0;
+  box-shadow: 0 -10px 30px rgba(0,27,61,0.05);
+}
+@media (min-width: 768px) { .bottom-nav { display: none; } }
+
+.bottom-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+}
+.bottom-nav__item:hover { color: #34d399; }
+
+.bottom-nav__item--active {
+  background: #000;
+  color: #4ade80;
+  border-radius: 0.75rem;
+}
+
+.bottom-nav__label {
+  font-family: var(--font-headline);
+  font-size: 0.625rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}

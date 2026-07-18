@@ -1,0 +1,699 @@
+/* ===== RESET & VARIABLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --green: #006d37;
+  --light-green: #6bfe9c;
+  --bg: #f8f9fa;
+  --surface-low: #f3f4f5;
+  --surface-mid: #edeeef;
+  --surface-high: #e1e3e4;
+  --surface-dim: #d9dadb;
+  --text: #191c1d;
+  --text-muted: #74777f;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100dvh;
+}
+h1,
+h2,
+h3 {
+  font-family: "Lexend", sans-serif;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 24px rgba(0, 27, 61, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  z-index: 100;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  font-family: "Lexend", sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.cart-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+#none{
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== MAIN ===== */
+main {
+  padding-top: 96px;
+  padding-bottom: 120px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+}
+.sep {
+  font-size: 12px;
+}
+.current {
+  color: var(--black);
+}
+
+/* ===== PRODUCT HERO ===== */
+.product-hero {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* ===== GALLERY ===== */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.gallery-main {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  background: var(--surface-low);
+}
+.gallery-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.stock-badge {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--light-green);
+  color: #00743a;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00743a;
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+.gallery-thumbs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.thumb {
+  aspect-ratio: 1/1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface-high);
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+.thumb:hover {
+  opacity: 1;
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.thumb-video {
+  background: linear-gradient(135deg, #000 0%, #001b3d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.play-icon {
+  font-size: 36px;
+  color: var(--light-green);
+}
+
+/* ===== PRODUCT INFO ===== */
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: sticky;
+  top: 96px;
+}
+.pro-badge {
+  display: inline-block;
+  background: var(--green);
+  color: var(--white);
+  padding: 4px 14px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+.product-title {
+  font-family: "Lexend", sans-serif;
+  font-size: 42px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -2px;
+  line-height: 1;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+.product-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* Price Box */
+.price-box {
+  background: var(--surface-low);
+  border-radius: 14px;
+  padding: 24px;
+}
+.price-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--surface-high);
+}
+.price-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.price {
+  display: block;
+  font-family: "Lexend", sans-serif;
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--black);
+}
+.rating {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green);
+}
+.quick-specs {
+  display: flex;
+  gap: 0;
+}
+.spec-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.spec-border {
+  border-left: 1px solid var(--surface-high);
+  border-right: 1px solid var(--surface-high);
+  padding: 0 16px;
+  margin: 0 16px;
+}
+.spec-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+}
+.spec-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--black);
+}
+
+/* Tech Cards */
+.tech-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.tech-card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 16px;
+  border: 1px solid var(--surface-high);
+}
+.tech-icon {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 8px;
+}
+.tech-card h3 {
+  font-family: "Lexend", sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.tech-card p {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* CTA */
+.cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.btn-primary {
+  width: 100%;
+  background: linear-gradient(135deg, #000 0%, #001b3d 100%);
+  color: var(--light-green);
+  border: none;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: "Lexend", sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+}
+.btn-primary:hover {
+  transform: scale(1.01);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.28);
+}
+.btn-primary:active {
+  transform: scale(0.97);
+}
+.btn-secondary {
+  width: 100%;
+  background: var(--surface-high);
+  color: var(--black);
+  border: none;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-secondary:hover {
+  background: var(--surface-dim);
+}
+
+.delivery-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  padding: 0 8px;
+}
+
+/* ===== FEATURES SECTION ===== */
+.features-section {
+  margin-top: 96px;
+}
+.features-title {
+  font-family: "Lexend", sans-serif;
+  font-size: 40px;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  margin-bottom: 40px;
+}
+
+/* Bento Grid */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  height: 600px;
+}
+.bento-card {
+  border-radius: 28px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+}
+.kinetic-gradient {
+  background: linear-gradient(135deg, #000000 0%, #001b3d 100%);
+}
+
+/* Big card */
+.bento-big {
+  grid-column: span 2;
+  grid-row: span 2;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+.bento-deco {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-size: 64px;
+  opacity: 0.2;
+}
+.bento-big h3 {
+  font-family: "Lexend", sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--light-green);
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+.bento-big p {
+  font-size: 15px;
+  color: rgba(177, 199, 242, 0.85);
+  line-height: 1.7;
+}
+
+/* Grip card */
+.bento-grip {
+  background: var(--surface-low);
+  grid-column: span 2;
+  justify-content: space-between;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+.bento-grip-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+.bento-grip-top h3 {
+  font-family: "Lexend", sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.bento-grip-top p {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 240px;
+}
+.grip-icon {
+  font-size: 40px;
+}
+.bento-grip-img {
+  height: 130px;
+  margin: 0 -32px -0px;
+  overflow: hidden;
+}
+.bento-grip-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Stat card */
+.bento-stat {
+  background: var(--surface-high);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.stat-number {
+  font-family: "Lexend", sans-serif;
+  font-size: 52px;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--black);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+/* FIFA card */
+.bento-fifa {
+  background: var(--light-green);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+.bento-fifa:hover {
+  background: var(--green);
+}
+.fifa-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+.fifa-label {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #00743a;
+}
+.bento-fifa:hover .fifa-label {
+  color: var(--white);
+}
+
+/* ===== TOAST ===== */
+.toast {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--black);
+  color: var(--light-green);
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-family: "Lexend", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0;
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 999;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ===== BOTTOM NAV ===== */
+.bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 20px 20px 0 0;
+  padding: 10px 0 24px;
+  justify-content: space-around;
+  z-index: 100;
+}
+.bottom-nav button {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+  color: #94a3b8;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 8px 20px;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+.bottom-nav button.active {
+  background: var(--black);
+  color: var(--light-green);
+}
+.nav-icon {
+  font-size: 20px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--black);
+  color: var(--white);
+  text-align: center;
+  padding: 80px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+.footer-logo {
+  font-family: "Lexend", sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--light-green);
+}
+.footer-links {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer-links a {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #64748b;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: var(--white);
+}
+.footer-copy {
+  font-size: 10px;
+  font-weight: 700;
+  color: #374151;
+  letter-spacing: 4px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .bento-grid {
+    height: auto;
+    grid-template-columns: 1fr 1fr;
+  }
+  .bento-big {
+    grid-column: span 2;
+    grid-row: span 1;
+    min-height: 300px;
+  }
+  .bento-grip {
+    grid-column: span 2;
+  }
+}
+@media (max-width: 768px) {
+  .header-nav {
+    display: none;
+  }
+  .bottom-nav {
+    display: flex;
+  }
+  main {
+    padding-bottom: 120px;
+  }
+  .product-hero {
+    grid-template-columns: 1fr;
+  }
+  .product-info {
+    position: static;
+  }
+  .product-title {
+    font-size: 32px;
+  }
+  .features-title {
+    font-size: 28px;
+  }
+  .bento-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .bento-big {
+    grid-column: span 1;
+  }
+  .bento-grip {
+    grid-column: span 1;
+  }
+}
